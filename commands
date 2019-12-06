@@ -1,0 +1,9 @@
+IOMMUGRP.sh # Find iommu groups
+
+vim /etc/modprobe.d/vfio.conf # add devices
+vim /etc/mkinitcpio.conf # add modules
+
+mkinitcpio -p linux # rebuild
+reboot
+
+lspci -nnk -d 8086:f1a8 # check to see if kernel is vfio
